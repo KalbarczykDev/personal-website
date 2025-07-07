@@ -15,14 +15,18 @@
       class="navbar-toggler"
       type="button"
       (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed"
       aria-controls="navbarNav"
-      aria-expanded="!isCollapsed"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div [ngbCollapse]="isCollapsed" class="navbar-collapse">
+    <div
+      id="navbarNav"
+      class="navbar-collapse collapse"
+      [class.show]="!isCollapsed"
+    >
       <ul class="navbar-nav ms-auto">
         <!-- GitHub -->
         <li class="nav-item">
@@ -35,7 +39,7 @@
             <i class="bi bi-github"></i>
           </a>
         </li>
-        <!-- Youtube-->
+        <!-- YouTube -->
         <li class="nav-item">
           <a
             class="nav-link"
@@ -62,7 +66,7 @@
             class="nav-link"
             href="https://x.com/KalbarczykDev"
             target="_blank"
-            aria-label="twitter"
+            aria-label="X"
           >
             <i class="bi bi-twitter-x"></i>
           </a>

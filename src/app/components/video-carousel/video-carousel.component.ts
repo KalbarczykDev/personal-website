@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { NgFor, NgIf } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -12,10 +12,10 @@ interface Video {
 }
 
 @Component({
-    selector: 'app-video-carousel',
-    templateUrl: './video-carousel.component.html',
-    styleUrls: ['./video-carousel.component.scss'],
-    imports: [NgbCarouselModule, NgFor, NgIf]
+  selector: 'app-video-carousel',
+  templateUrl: './video-carousel.component.html',
+  styleUrls: ['./video-carousel.component.scss'],
+  imports: [NgFor, NgIf],
 })
 export class VideoCarouselComponent implements OnInit {
   videos: Video[] = [];
