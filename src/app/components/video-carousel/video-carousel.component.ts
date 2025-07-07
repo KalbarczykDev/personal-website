@@ -12,11 +12,10 @@ interface Video {
 }
 
 @Component({
-  selector: 'app-video-carousel',
-  templateUrl: './video-carousel.component.html',
-  styleUrls: ['./video-carousel.component.scss'],
-  imports: [NgbCarouselModule, NgFor, NgIf],
-  standalone: true,
+    selector: 'app-video-carousel',
+    templateUrl: './video-carousel.component.html',
+    styleUrls: ['./video-carousel.component.scss'],
+    imports: [NgbCarouselModule, NgFor, NgIf]
 })
 export class VideoCarouselComponent implements OnInit {
   videos: Video[] = [];
