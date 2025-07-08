@@ -37,9 +37,9 @@ export class HomeComponent {
     },
   ];
 
-  videos = [
-    { title: 'RxJS Crash Course', thumbnail: 'assets/video1.jpg', link: '#' },
-    { title: 'Signals Explained', thumbnail: 'assets/video2.jpg', link: '#' },
-    { title: 'Bootstrap + Angular', thumbnail: 'assets/video3.jpg', link: '#' },
+  playlists = [
+    { title: 'Java', thumbnail: 'assets/video1.jpg', link: '#' },
+    { title: 'JavaScript', thumbnail: 'assets/video2.jpg', link: '#' },
+    { title: 'Design Patterns', thumbnail: 'assets/video3.jpg', link: '#' },
   ];
 }
