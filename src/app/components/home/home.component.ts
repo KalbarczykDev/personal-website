@@ -38,8 +38,26 @@ export class HomeComponent {
   ];
 
   playlists = [
-    { title: 'Java', thumbnail: 'assets/video1.jpg', link: '#' },
-    { title: 'JavaScript', thumbnail: 'assets/video2.jpg', link: '#' },
-    { title: 'Design Patterns', thumbnail: 'assets/video3.jpg', link: '#' },
+    {
+      title: 'Java',
+      description:
+        'Learn the fundamentals and advanced concepts of Java for building robust applications.',
+      thumbnail: 'assets/java-playlist.webp',
+      link: 'https://youtube.com/playlist?list=PLiayrFm4-ZkGya65COeC-BeYmRJyHvVbC&si=BFdkuu7AiKRPliEI',
+    },
+    {
+      title: 'JavaScript',
+      description:
+        'Master JavaScript essentials to create dynamic, interactive web experiences.',
+      thumbnail: 'assets/js-playlist.webp',
+      link: 'https://youtube.com/playlist?list=PLiayrFm4-ZkEyOJz85BywT8VNUM1CbZEJ&si=dCZ8pdjIVU1hhQVR',
+    },
+    {
+      title: 'Design Patterns',
+      description:
+        'Explore proven design patterns to write cleaner, more maintainable code.',
+      thumbnail: 'assets/patterns-playlist.webp',
+      link: 'https://youtube.com/playlist?list=PLiayrFm4-ZkEa21XHCfpcV2zgHQJwmMfB&si=cSyUfcFmoQ2iuQuJ',
+    },
   ];
 }
