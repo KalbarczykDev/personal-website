@@ -4,17 +4,19 @@
     <div class="col-12 mx-auto">
       <div class="card shadow-sm">
         <div class="card-body">
-          <h3 class="card-title">About Me</h3>
-          <p class="card-text">{{ about }}</p>
+          <h3 class="card-title">About Me 🧑‍💻🖥️</h3>
+          <p class="card-text" [innerHTML]="about"></p>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Courses Section -->
-  <h4 class="mb-3">Courses</h4>
+  <h4 class="mb-3">Courses 👨‍🎓</h4>
   <div class="row g-3 mb-4">
-    <div class="col-md-4" *ngFor="let course of courses">
+         @for(course of courses; track course.title){
+    <div class="col-md-4">
+
       <div class="card h-100 shadow">
         <div class="card-body d-flex flex-column shadow-sm">
           <h5 class="card-title fw-bold fs-4">{{ course.title }}</h5>
@@ -25,23 +27,28 @@
           />
           <div class="mt-3 text-center">
             <p class="card-text flex-grow-1">{{ course.description }}</p>
+              @if(course.link !== ""){
             <a
-              *ngIf="course.link !== ''"
               [href]="course.link"
               class="btn btn-dark"
             >
               🚀 Enroll Now!
             </a>
+              }
           </div>
         </div>
       </div>
+
     </div>
+    }
   </div>
 
   <!-- Videos Section -->
-   <h4 class="mb-3">Video Playlists</h4>
+   <h4 class="mb-3">Video Playlists 📹</h4>
   <div class="row g-3 mb-4">
-    <div class="col-md-4" *ngFor="let playlist of playlists">
+     @for(playlist of  playlists; track playlist.title){
+    <div class="col-md-4" >
+
       <div class="card h-100 shadow">
         <div class="card-body d-flex flex-column shadow-sm">
           <h5 class="card-title fw-bold fs-4">{{ playlist.title }}</h5>
@@ -61,6 +68,8 @@
           </div>
         </div>
       </div>
+
     </div>
+    }
   </div>
   </div>

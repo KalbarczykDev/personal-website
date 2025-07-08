@@ -1,16 +1,17 @@
-import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  imports: [NgFor, NgIf],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   about = `
-    I am fullstack developer and  Computer Science grad from the Polish-Japanese Academy of Information Technology, I teach students FullStack development. My focus is on helping them truly get the core ideas of programming, how to use popular frameworks, and the best ways to build software. I mostly work with Java for the back-end and Angular for the front-end.
-  `;
+  I am a <strong>fullstack developer</strong> and <strong>Computer Science </strong>  grad from the <strong>Polish-Japanese Academy of Information Technology</strong>.
+  On YouTube, I share my knowledge of fullstack development, helping aspiring developers truly grasp the core principles of programming, master modern frameworks, and discover the most effective ways to build high-quality software.
+  I mostly work with <strong>Java Spring</strong> for the back-end and <strong>Angular</strong> for the front-end.
+`;
 
   courses = [
     {
