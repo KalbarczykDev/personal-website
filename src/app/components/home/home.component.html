@@ -1,7 +1,7 @@
 <div class="container py-4">
   <!-- About Section -->
   <div class="row mb-4">
-    <div class="col-md-6 mx-auto">
+    <div class="col-12 mx-auto">
       <div class="card shadow-sm">
         <div class="card-body">
           <h3 class="card-title">About Me</h3>
@@ -16,27 +16,39 @@
   <div class="row g-3 mb-4">
     <div class="col-md-4" *ngFor="let course of courses">
       <div class="card h-100 shadow-sm">
-        <div class="card-body d-flex flex-column">
+        <div class="card-body d-flex flex-column shadow-sm">
           <h5 class="card-title">{{ course.title }}</h5>
-          <p class="card-text">{{ course.description }}</p>
-          <img [src]="course.thumbnail" class="card-img-top" [alt]="course.title" />
-          <a href="#" class="btn-gradient">✨ Learn More</a>
+          <img
+            [src]="course.thumbnail"
+            class="card-img-top shadow-sm"
+            [alt]="course.title"
+          />
+          <div class="mt-3">
+            <p class="card-text flex-grow-1">{{ course.description }}</p>
+            <a
+              *ngIf="course.link !== ''"
+              [href]="course.link"
+              class="btn btn-primary"
+            >
+              🚀 Enroll Now!
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Videos Section -->
-  <h4 class="mb-3">Videos</h4>
-  <div class="row g-3">
-    <div class="col-md-4" *ngFor="let video of videos">
-      <div class="card h-100 shadow-sm">
-        <img [src]="video.thumbnail" class="card-img-top" [alt]="video.title" />
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">{{ video.title }}</h5>
-          <button type="button" class="btn-gradient">🚀 Watch Now</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- <h4 class="mb-3">Videos</h4> -->
+  <!-- <div class="row g-3"> -->
+  <!--   <div class="col-md-4" *ngFor="let video of videos"> -->
+  <!--     <div class="card h-100 shadow-sm"> -->
+  <!--       <img [src]="video.thumbnail" class="card-img-top" [alt]="video.title" /> -->
+  <!--       <div class="card-body d-flex flex-column"> -->
+  <!--         <h5 class="card-title">{{ video.title }}</h5> -->
+  <!--       <button type="button" class="btn btn-primary">🎬 Watch Now!</button> -->
+  <!--       </div> -->
+  <!--     </div> -->
+  <!--   </div> -->
+  <!-- </div> -->
 </div>
