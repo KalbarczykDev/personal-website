@@ -26,11 +26,14 @@
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^20.0.5",
+    "@angular-devkit/core": "^20.0.5",
     "@angular/build": "^20.0.5",
     "@angular/cli": "^20.0.5",
     "@angular/compiler-cli": "^20.0.6",
     "@angular/language-service": "^20.0.6",
     "@angular/localize": "^20.0.6",
+    "@ngx-env/builder": "^19.1.0",
     "@types/jasmine": "~5.1.0",
     "dotenv": "^17.0.1",
     "jasmine-core": "~5.1.0",

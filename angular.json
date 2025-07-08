@@ -15,21 +15,25 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@ngx-env/builder:application",
           "options": {
             "outputPath": "dist/personal-website",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css"
             ],
-
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
@@ -58,7 +62,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@ngx-env/builder:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "personalWebsite:build:production"
@@ -67,23 +71,33 @@
               "buildTarget": "personalWebsite:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {}
         },
         "extract-i18n": {
-          "builder": "@angular/build:extract-i18n",
+          "builder": "@ngx-env/builder:extract-i18n",
           "options": {
             "buildTarget": "personalWebsite:build"
           }
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@ngx-env/builder:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
-            "scripts": []
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "builderMode": "browser"
           }
         }
       }

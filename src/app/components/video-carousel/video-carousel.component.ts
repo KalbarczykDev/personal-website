@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { NgFor, NgIf } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -31,10 +30,11 @@ export class VideoCarouselComponent implements OnInit {
   }
 
   fetchVideos() {
-    const apiKey = '';
-    console.log('YouTube API Key:', apiKey);
-    const channelId = '';
-    console.log('YouTube Channel ID:', channelId);
+    const apiKey = import.meta.env['YOUTUBE_API_KEY'];
+    console.log('API Key:', apiKey);
+    const channelId = import.meta.env['YOUTUBE_CHANNEL_ID'];
+    console.log('API Key:', apiKey);
+
     const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=5`;
 
     this.http.get<any>(url).subscribe((res) => {
