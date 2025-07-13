@@ -1,5 +1,5 @@
 <div class="container py-4">
-  <!-- About Section -->
+   <!-- About Section -->
   <div class="row mb-4">
     <div class="col-12 mx-auto">
       <div class="card shadow-sm">
@@ -10,66 +10,26 @@
       </div>
     </div>
   </div>
-
-  <!-- Courses Section -->
-  <h4 class="mb-3">Courses 👨‍🎓</h4>
+  <!-- Cards -->
   <div class="row g-3 mb-4">
-         @for(course of courses; track course.title){
-    <div class="col-md-4">
-
-      <div class="card h-100 shadow">
-        <div class="card-body d-flex flex-column shadow-sm">
-          <h5 class="card-title fw-bold fs-4">{{ course.title }}</h5>
-          <img
-            [src]="course.thumbnail"
-            class="card-img-top shadow"
-            [alt]="course.title"
-          />
-          <div class="mt-3 text-center">
-            <p class="card-text flex-grow-1">{{ course.description }}</p>
-              @if(course.link !== ""){
-            <a
-              [href]="course.link"
-              class="btn btn-dark"
-            >
-              🚀 Enroll Now!
-            </a>
-              }
-          </div>
+    @for (card of cards; track card.title) {
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <a [href]="card.link" class="text-decoration-none text-dark">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold fs-4">{{ card.title }}</h5>
+              <img
+                [src]="card.thumbnail"
+                class="card-img-top shadow"
+                [alt]="card.title"
+              />
+              <div class="mt-3 text-center">
+                <p class="card-text flex-grow-1">{{ card.description }}</p>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
-
-    </div>
     }
   </div>
-
-  <!-- Videos Section -->
-   <h4 class="mb-3">Video Playlists 📹</h4>
-  <div class="row g-3 mb-4">
-     @for(playlist of  playlists; track playlist.title){
-    <div class="col-md-4" >
-
-      <div class="card h-100 shadow">
-        <div class="card-body d-flex flex-column shadow-sm">
-          <h5 class="card-title fw-bold fs-4">{{ playlist.title }}</h5>
-          <img
-            [src]=" playlist.thumbnail"
-            class="card-img-top shadow"
-            [alt]="playlist.title"
-          />
-          <div class="mt-3 text-center">
-            <p class="card-text flex-grow-1">{{ playlist.description }}</p>
-            <a
-              [href]="playlist.link"
-              class="btn btn-dark"
-            >
-              👀 Watch Now!
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    }
-  </div>
-  </div>
+</div>

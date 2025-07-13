@@ -12,49 +12,24 @@ export class HomeComponent {
   On YouTube, I share my knowledge of fullstack development, helping aspiring developers truly grasp the core principles of programming, master modern frameworks, and discover the most effective ways to build high-quality software.
   I mostly work with <strong>Java Spring</strong> for the back-end and <strong>Angular</strong> for the front-end.
 `;
-
-  courses = [
+  cards = [
     {
-      title: 'Java Lombok: Full Guide',
+      title: 'Join Spring Boot Academy 🍃☕️🅰️',
       description:
-        'Master Project Lombok and write clean, concise, and maintainable Java code faster.',
-      link: 'https://www.udemy.com/user/oskar-kalbarczyk/',
-      thumbnail: 'assets/lombok-course.webp',
+        'Netflix but for Java And Spring Boot. Connect with fellow developers, share your projects, and get personal help on your coding journey.',
+      link: 'https://www.skool.com/spring-boot-academy-1127/about',
+      thumbnail: 'assets/skool-banner.png',
     },
     {
-      title: 'T.B.A',
-      description: 'To be announced soon!',
-      link: '',
-      thumbnail:
-        'https://placehold.co/1280x720/FFFFFF/000000?text=Coming+Soon!&font=roboto',
-    },
-    {
-      title: 'T.B.A',
-      description: 'To be announced soon!',
-      link: '',
-
-      thumbnail:
-        'https://placehold.co/1280x720/FFFFFF/000000?text=Coming+Soon!&font=roboto',
-    },
-  ];
-
-  playlists = [
-    {
-      title: 'Java',
+      title: 'Java Youtube Series',
       description:
         'Learn the fundamentals and advanced concepts of Java for building robust applications.',
       thumbnail: 'assets/java-playlist.webp',
       link: 'https://youtube.com/playlist?list=PLiayrFm4-ZkGya65COeC-BeYmRJyHvVbC&si=BFdkuu7AiKRPliEI',
     },
+
     {
-      title: 'JavaScript',
-      description:
-        'Master JavaScript essentials to create dynamic, interactive web experiences.',
-      thumbnail: 'assets/js-playlist.webp',
-      link: 'https://youtube.com/playlist?list=PLiayrFm4-ZkEyOJz85BywT8VNUM1CbZEJ&si=dCZ8pdjIVU1hhQVR',
-    },
-    {
-      title: 'Design Patterns',
+      title: 'Design Patterns Youtube Series',
       description:
         'Explore proven design patterns to write cleaner, more maintainable code.',
       thumbnail: 'assets/patterns-playlist.webp',
