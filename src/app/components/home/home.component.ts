@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   about = `
-  I am a <strong>fullstack developer</strong> and <strong>Computer Science </strong>  grad from the <strong>Polish-Japanese Academy of Information Technology</strong>.
-  On YouTube, I share my knowledge of fullstack development, helping aspiring developers truly grasp the core principles of programming, master modern frameworks, and discover the most effective ways to build high-quality software.
-  I mostly work with <strong>Java Spring</strong> for the back-end and <strong>Angular</strong> for the front-end.
-`;
+I am a Java and Spring Boot developer. On YouTube, I share my knowledge of backend development to help aspiring developers really grasp the core principles of programming, master modern frameworks, and discover the most effective ways to build high-quality software. I mostly work with Java Spring for the backend and Angular for the frontend.`;
   cards = [
     {
       title: 'Join Spring Boot Academy 🍃☕️🅰️',
