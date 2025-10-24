@@ -1,11 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
 
-/* Importing Bootstrap SCSS file. */
 @use "bootstrap/scss/bootstrap";
 
 body {
   font-family: "Roboto", sans-serif;
-  font-size: 1rem; /* optional: adjust to taste */
+  font-size: 1rem;
   line-height: 1.6;
   color: #212529;
 }
@@ -16,38 +14,55 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 500; /* medium for headings looks great */
+  font-weight: 500;
 }
 
 
 // ==========================================
 // Variables
 // ==========================================
-$spring-green: #6db33f;
-$java-red: #e76f00;
-$java-blue: #5382a1;
-$white: #ffffff;
-$dark-bg: #1a1a1a;
-$text-dark: #2d3748;
-$text-light: #4a5568;
+// Core Brand Colors
+$color-brand-spring: #6CBF40;
+$color-brand-java-orange: #E8700F;
+$color-brand-java-blue: #578DAF;
+
+// Neutrals and Text
+$color-white: #ffffff;
+$color-light-gray: #F7F9FA;
+$color-dark-bg: #20232A;
+
+$color-text-dark: #2C3E50;
+$color-text-medium: #607D8B;
+
+// Semantic Colors
+$color-success: #4CAF50;
+$color-warning: #FFC107;
+$color-error: #F44336;
+$color-info: #2196F3;
+
+// Radius Variables
 $border-radius-sm: 0.5rem;
 $border-radius-md: 0.75rem;
 $border-radius-lg: 1rem;
 $border-radius-xl: 1.25rem;
 
 // Gradients
-$gradient-primary: linear-gradient(135deg, $spring-green 0%, #5a9e35 100%);
-$gradient-secondary: linear-gradient(135deg, $java-red 0%, #c85d00 100%);
-$gradient-accent: linear-gradient(135deg, $java-blue 0%, #4a6b86 100%);
-$gradient-background: linear-gradient(135deg, #f8faf9 0%, #e8f5e9 100%);
-$gradient-navbar: linear-gradient(135deg, $dark-bg 0%, #2d2d2d 100%);
-$gradient-multi: linear-gradient(90deg, $spring-green, $java-red, $java-blue);
+$gradient-primary: linear-gradient(135deg, $color-brand-spring 0%, #408E21 100%);
+$gradient-secondary: linear-gradient(135deg, $color-brand-java-orange 0%, #B8590D 100%);
+$gradient-accent: linear-gradient(135deg, $color-brand-java-blue 0%, #42728D 100%);
+
+$gradient-background: linear-gradient(135deg, $color-white 0%, $color-light-gray 100%);
+$gradient-navbar: linear-gradient(135deg, $color-dark-bg 0%, #35495e 100%);
+
+$gradient-multi: linear-gradient(90deg, $color-brand-spring, $color-brand-java-orange, $color-brand-java-blue);
 
 // Shadows
-$shadow-sm: 0 10px 30px rgba($spring-green, 0.15);
-$shadow-md: 0 20px 40px rgba($spring-green, 0.25);
-$shadow-lg: 0 25px 50px rgba($spring-green, 0.3);
-$shadow-navbar: 0 4px 20px rgba(#000, 0.3);
+$shadow-sm: 0 4px 12px rgba(#000000, 0.1);
+$shadow-md: 0 8px 25px rgba(#000000, 0.15);
+$shadow-lg: 0 16px 40px rgba(#000000, 0.2);
+$shadow-navbar: 0 2px 10px rgba(#000000, 0.4);
+
+
 
 // Transitions
 $transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -61,7 +76,7 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: $border-radius-lg;
   overflow: hidden;
   transition: $transition-smooth;
-  background: rgba($white, 0.98);
+  background: rgba($color-white, 0.98);
   backdrop-filter: blur(10px);
 }
 
@@ -124,10 +139,10 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 @keyframes pulse {
   0%, 100% {
-    box-shadow: 0 4px 12px rgba($spring-green, 0.3);
+    box-shadow: 0 4px 12px rgba($color-brand-spring, 0.3);
   }
   50% {
-    box-shadow: 0 4px 20px rgba($spring-green, 0.6);
+    box-shadow: 0 4px 20px rgba($color-brand-spring, 0.6);
   }
 }
 
@@ -136,6 +151,7 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 // ==========================================
 .navbar {
   background: $gradient-navbar !important;
+  color: $color-white !important;
   box-shadow: $shadow-navbar;
   padding: 0.75rem 0;
   position: sticky;
@@ -158,7 +174,7 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: $white !important;
+    color: $color-white !important;
     position: relative;
 
     &::after {
@@ -182,31 +198,31 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     img {
-      border: 3px solid $white;
+      border: 3px solid $color-white;
       transition: $transition-smooth;
-      box-shadow: 0 4px 12px rgba($spring-green, 0.3);
+      box-shadow: 0 4px 12px rgba($color-brand-spring, 0.3);
       animation: pulse 3s ease-in-out infinite;
 
       &:hover {
         transform: scale(1.1) rotate(5deg);
-        border-color: $spring-green;
-        box-shadow: 0 6px 20px rgba($spring-green, 0.5);
+        border-color: $color-brand-spring;
+        box-shadow: 0 6px 20px rgba($color-brand-spring, 0.5);
       }
     }
   }
 
   // Toggler
   &-toggler {
-    border: 2px solid $spring-green;
+    border: 2px solid $color-brand-spring;
     transition: $transition-smooth;
 
     &:hover {
-      background-color: rgba($spring-green, 0.1);
+      background-color: rgba($color-brand-spring, 0.1);
       transform: rotate(90deg);
     }
 
     &:focus {
-      box-shadow: 0 0 0 0.25rem rgba($spring-green, 0.25);
+      box-shadow: 0 0 0 0.25rem rgba($color-brand-spring, 0.25);
     }
 
     &-icon {
@@ -220,7 +236,7 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       margin: 0 0.25rem;
 
       .nav-link {
-        color: rgba($white, 0.8) !important;
+        color: rgba($color-white, 0.8) !important;
         font-size: 1.5rem;
         padding: 0.5rem 0.75rem;
         border-radius: $border-radius-sm;
@@ -246,7 +262,7 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         &:hover {
-          color: $white !important;
+          color: $color-white !important;
           transform: translateY(-3px);
 
           &::before {
@@ -323,7 +339,7 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     @include hover-lift;
     box-shadow: $shadow-md;
-    border-left-color: $spring-green;
+    border-left-color: $color-brand-spring;
   }
 
   .card-body {
@@ -347,7 +363,7 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     .card-text {
       font-size: 1.1rem;
       line-height: 1.8;
-      color: $text-light;
+      color: $color-text-dark;
       white-space: pre-line;
     }
   }
@@ -379,14 +395,26 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       @for $i from 1 through 3 {
         &:nth-child(3n+#{$i}) {
           @if $i == 1 {
-            &:hover::before { background: $gradient-primary; }
-            .card-title { @include gradient-text($gradient-primary); }
+            &:hover::before {
+              background: $gradient-primary;
+            }
+            .card-title {
+              @include gradient-text($gradient-primary);
+            }
           } @else if $i == 2 {
-            &:hover::before { background: $gradient-secondary; }
-            .card-title { @include gradient-text($gradient-secondary); }
+            &:hover::before {
+              background: $gradient-secondary;
+            }
+            .card-title {
+              @include gradient-text($gradient-secondary);
+            }
           } @else {
-            &:hover::before { background: $gradient-accent; }
-            .card-title { @include gradient-text($gradient-accent); }
+            &:hover::before {
+              background: $gradient-accent;
+            }
+            .card-title {
+              @include gradient-text($gradient-accent);
+            }
           }
         }
       }
@@ -394,7 +422,7 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       &:hover {
         @include hover-lift(-10px, 1.02);
         box-shadow: $shadow-lg;
-        border-color: rgba($spring-green, 0.3);
+        border-color: rgba($color-brand-spring, 0.3);
 
         &::before {
           transform: scaleX(1);
@@ -440,7 +468,7 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         .card-text {
           font-size: 1rem;
           line-height: 1.6;
-          color: $text-light;
+          color: $color-text-dark;
           margin-top: 1rem;
         }
       }
@@ -474,11 +502,11 @@ $transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 @media (max-width: 991px) {
   .navbar {
     .navbar-collapse {
-      background: rgba($dark-bg, 0.98);
+      background: rgba($color-dark-bg, 0.98);
       margin-top: 1rem;
       padding: 1rem;
       border-radius: $border-radius-md;
-      border: 2px solid rgba($spring-green, 0.3);
+      border: 2px solid rgba($color-brand-spring, 0.3);
 
       &.show {
         animation: fadeIn 0.3s ease-out;
