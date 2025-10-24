@@ -5,33 +5,54 @@
       <div class="card shadow-sm">
         <div class="card-body">
           <h3 class="card-title">About Me</h3>
-          <p class="card-text" [innerHTML]="about"></p>
+          <p class="card-text">
+            I am a Java and Spring Boot developer. On YouTube, I share my knowledge of backend development to help aspiring developers really grasp the core principles of programming, master modern frameworks, and discover the most effective ways to build high-quality software. I mostly work with Java Spring for the backend and Angular for the frontend.
+          </p>
+
         </div>
       </div>
     </div>
   </div>
   <!-- Cards -->
-  <div class="row g-3 mb-4">
-    @for (card of cards; track card.title) {
-      <div class="col-md-4">
-        <div class="card h-100 shadow">
-          <a [href]="card.link" class="text-decoration-none text-dark">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title fw-bold fs-4">{{ card.title }}</h5>
-              <img
-                ngSrc="{{card.thumbnail}}"
-                class="card-img-top shadow"
-                [alt]="card.title"
-                style="object-fit: cover; height: 200px;"
-                height="400" width="600"
-              />
-              <div class="mt-3 text-center">
-                <p class="card-text flex-grow-1">{{ card.description }}</p>
-              </div>
-            </div>
-          </a>
+  <div class="row text-center g-4 mb-4">
+    <div class="col-md-4">
+      <a href="https://www.youtube.com/@KalbarczykDev?sub_confirmation=1I"
+         class="text-decoration-none text-dark">
+        <div class="card h-100 shadow-sm py-4">
+          <i class="bi bi-youtube display-1 text-danger mb-3"></i>
+          <h5 class="fw-bold fs-3">YouTube</h5>
+          <p class="text-muted px-3">
+            My YouTube channel with tutorials on Java, Spring Boot, and backend development best practices.
+          </p>
         </div>
-      </div>
-    }
+      </a>
+    </div>
+
+    <div class="col-md-4">
+      <a href="https://www.skool.com/spring-boot-academy-1127/about"
+         class="text-decoration-none text-dark">
+        <div class="card h-100 shadow-sm py-4">
+          <i class="bi bi-people-fill display-1 text-primary mb-3"></i>
+          <h5 class="fw-bold fs-3">Community</h5>
+          <p class="text-muted px-3">
+            Netflix but for Java and Spring Boot. Instead of movies, consume high-quality tutorials and courses on backend development
+            with Java and spring boot.
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-4">
+      <a href="https://github.com/KalbarczykDev"
+         class="text-decoration-none text-dark">
+        <div class="card h-100 shadow-sm py-4">
+          <i class="bi bi-code-slash display-1 text-success mb-3"></i>
+          <h5 class="fw-bold fs-3">Projects</h5>
+          <p class="text-muted px-3">
+            My open source projects on GitHub.
+          </p>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
