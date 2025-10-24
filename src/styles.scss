@@ -18,3 +18,506 @@ h5,
 h6 {
   font-weight: 500; /* medium for headings looks great */
 }
+
+
+// ==========================================
+// Variables
+// ==========================================
+$spring-green: #6db33f;
+$java-red: #e76f00;
+$java-blue: #5382a1;
+$white: #ffffff;
+$dark-bg: #1a1a1a;
+$text-dark: #2d3748;
+$text-light: #4a5568;
+$border-radius-sm: 0.5rem;
+$border-radius-md: 0.75rem;
+$border-radius-lg: 1rem;
+$border-radius-xl: 1.25rem;
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, $spring-green 0%, #5a9e35 100%);
+$gradient-secondary: linear-gradient(135deg, $java-red 0%, #c85d00 100%);
+$gradient-accent: linear-gradient(135deg, $java-blue 0%, #4a6b86 100%);
+$gradient-background: linear-gradient(135deg, #f8faf9 0%, #e8f5e9 100%);
+$gradient-navbar: linear-gradient(135deg, $dark-bg 0%, #2d2d2d 100%);
+$gradient-multi: linear-gradient(90deg, $spring-green, $java-red, $java-blue);
+
+// Shadows
+$shadow-sm: 0 10px 30px rgba($spring-green, 0.15);
+$shadow-md: 0 20px 40px rgba($spring-green, 0.25);
+$shadow-lg: 0 25px 50px rgba($spring-green, 0.3);
+$shadow-navbar: 0 4px 20px rgba(#000, 0.3);
+
+// Transitions
+$transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-transform: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+// ==========================================
+// Mixins
+// ==========================================
+@mixin card-base {
+  border: none;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  transition: $transition-smooth;
+  background: rgba($white, 0.98);
+  backdrop-filter: blur(10px);
+}
+
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin hover-lift($translateY: -5px, $scale: 1) {
+  transform: translateY($translateY) scale($scale);
+}
+
+@mixin accent-line($width: 60px, $height: 4px) {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: $width;
+  height: $height;
+  border-radius: 2px;
+}
+
+// ==========================================
+// Animations
+// ==========================================
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba($spring-green, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba($spring-green, 0.6);
+  }
+}
+
+// ==========================================
+// Navbar Styles
+// ==========================================
+.navbar {
+  background: $gradient-navbar !important;
+  box-shadow: $shadow-navbar;
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid transparent;
+  border-image: $gradient-multi 1;
+  animation: slideDown 0.5s ease-out;
+
+  .container-fluid {
+    position: relative;
+  }
+
+  // Brand
+  &-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: $transition-smooth;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: $white !important;
+    position: relative;
+
+    &::after {
+      @include accent-line(100%, 3px);
+      bottom: -5px;
+      width: 0;
+      background: $gradient-multi;
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+
+      &::after {
+        width: 100%;
+      }
+
+      span {
+        @include gradient-text($gradient-multi);
+      }
+    }
+
+    img {
+      border: 3px solid $white;
+      transition: $transition-smooth;
+      box-shadow: 0 4px 12px rgba($spring-green, 0.3);
+      animation: pulse 3s ease-in-out infinite;
+
+      &:hover {
+        transform: scale(1.1) rotate(5deg);
+        border-color: $spring-green;
+        box-shadow: 0 6px 20px rgba($spring-green, 0.5);
+      }
+    }
+  }
+
+  // Toggler
+  &-toggler {
+    border: 2px solid $spring-green;
+    transition: $transition-smooth;
+
+    &:hover {
+      background-color: rgba($spring-green, 0.1);
+      transform: rotate(90deg);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba($spring-green, 0.25);
+    }
+
+    &-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%236db33f' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+  }
+
+  // Nav Items
+  .navbar-nav {
+    .nav-item {
+      margin: 0 0.25rem;
+
+      .nav-link {
+        color: rgba($white, 0.8) !important;
+        font-size: 1.5rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: $border-radius-sm;
+        transition: $transition-smooth;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: $border-radius-sm;
+          background: $gradient-multi;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          z-index: -1;
+        }
+
+        i {
+          transition: $transition-smooth;
+        }
+
+        &:hover {
+          color: $white !important;
+          transform: translateY(-3px);
+
+          &::before {
+            opacity: 1;
+          }
+
+          i {
+            transform: scale(1.2);
+          }
+        }
+
+        &:active {
+          transform: translateY(-1px);
+        }
+      }
+
+      // Individual social icon gradients
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) .nav-link:hover::before {
+          @if $i == 1 {
+            background: linear-gradient(135deg, #333, #666);
+          } @else if $i == 2 {
+            background: linear-gradient(135deg, #e1306c, #fd1d1d);
+          } @else if $i == 3 {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+          } @else if $i == 4 {
+            background: linear-gradient(135deg, #0077b5, #00a0dc);
+          } @else if $i == 5 {
+            background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// Container & Background
+// ==========================================
+.container {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $gradient-background;
+    z-index: -1;
+    opacity: 0.5;
+  }
+}
+
+// ==========================================
+// Card Base Styles
+// ==========================================
+.card {
+  @include card-base;
+  border-left: 4px solid transparent;
+  animation: fadeInUp 0.6s ease-out;
+
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+
+  &.shadow-sm {
+    box-shadow: $shadow-sm;
+  }
+
+  &:hover {
+    @include hover-lift;
+    box-shadow: $shadow-md;
+    border-left-color: $spring-green;
+  }
+
+  .card-body {
+    position: relative;
+    padding: 2rem;
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      @include gradient-text($gradient-primary);
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        @include accent-line;
+        background: $gradient-primary;
+      }
+    }
+
+    .card-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: $text-light;
+      white-space: pre-line;
+    }
+  }
+}
+
+// ==========================================
+// Project Cards
+// ==========================================
+.row.g-3 {
+  .col-md-4 {
+    .card {
+      border-radius: $border-radius-xl;
+      border: 2px solid transparent;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: $gradient-primary;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: $transition-smooth;
+      }
+
+      // Apply different gradients to each card
+      @for $i from 1 through 3 {
+        &:nth-child(3n+#{$i}) {
+          @if $i == 1 {
+            &:hover::before { background: $gradient-primary; }
+            .card-title { @include gradient-text($gradient-primary); }
+          } @else if $i == 2 {
+            &:hover::before { background: $gradient-secondary; }
+            .card-title { @include gradient-text($gradient-secondary); }
+          } @else {
+            &:hover::before { background: $gradient-accent; }
+            .card-title { @include gradient-text($gradient-accent); }
+          }
+        }
+      }
+
+      &:hover {
+        @include hover-lift(-10px, 1.02);
+        box-shadow: $shadow-lg;
+        border-color: rgba($spring-green, 0.3);
+
+        &::before {
+          transform: scaleX(1);
+        }
+
+        .card-img-top {
+          transform: scale(1.1);
+          filter: brightness(1.05);
+        }
+
+        .card-title {
+          transform: translateX(5px);
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+          color: inherit;
+        }
+      }
+
+      .card-body {
+        padding: 1.75rem;
+
+        .card-title {
+          font-size: 1.5rem;
+          font-weight: 800;
+          margin-bottom: 1.25rem;
+          transition: $transition-smooth;
+        }
+
+        .card-img-top {
+          border-radius: $border-radius-md;
+          margin: 1rem 0;
+          transition: $transition-transform;
+          box-shadow: 0 8px 20px rgba(#000, 0.12);
+          overflow: hidden;
+        }
+
+        .card-text {
+          font-size: 1rem;
+          line-height: 1.6;
+          color: $text-light;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// Scrollbar Styling
+// ==========================================
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gradient-primary;
+  border-radius: 5px;
+
+  &:hover {
+    background: $gradient-secondary;
+  }
+}
+
+// ==========================================
+// Responsive Design
+// ==========================================
+@media (max-width: 991px) {
+  .navbar {
+    .navbar-collapse {
+      background: rgba($dark-bg, 0.98);
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: $border-radius-md;
+      border: 2px solid rgba($spring-green, 0.3);
+
+      &.show {
+        animation: fadeIn 0.3s ease-out;
+      }
+    }
+
+    .navbar-nav {
+      .nav-item {
+        margin: 0.25rem 0;
+
+        .nav-link {
+          padding: 0.75rem 1rem;
+          border-radius: $border-radius-sm;
+
+          &:hover {
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    .card-body {
+      padding: 1.5rem;
+
+      .card-title {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .row.g-3 .col-md-4 .card .card-body {
+    padding: 1.5rem;
+
+    .card-title {
+      font-size: 1.25rem;
+    }
+  }
+}
